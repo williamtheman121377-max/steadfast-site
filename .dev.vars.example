@@ -1,0 +1,4 @@
+# For testing on your own computer only (npm run dev).
+# Copy this file to .dev.vars and paste your Stripe TEST key (starts with sk_test_).
+# .dev.vars is never uploaded.
+STRIPE_SECRET_KEY=sk_test_paste_your_test_key_here

@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Steadfast. Built on the word. Shop the Steadfast Script Hoodie.">
+<link rel="icon" href="steadfast-logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>STEADFAST Origins Hoodie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,800..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: retail product page — sticky header, photo gallery left / buy box right, statement band, footer */
+:root {
+  --bg: #ffffff;
+  --fg: #121314;
+  --muted: #6b6e72;
+  --line: #e4e5e7;
+  --panel: #f4f4f5;
+  --photo: #ffffff;
+  --red: #b3163a;
+  --blue: #2c3fa8;
+  --on-red: #ffffff;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1011; --fg: #ececea; --muted: #9a9da1; --line: #2a2c2f;
+    --panel: #1a1b1d; --red: #d4294f; --blue: #7d8ef0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1011; --fg: #ececea; --muted: #9a9da1; --line: #2a2c2f;
+  --panel: #1a1b1d; --red: #d4294f; --blue: #7d8ef0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 14px; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.wrap { max-width: 1440px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* announcement + header */
+.announce { background: var(--fg); color: var(--bg); text-align: center; }
+.announce .wrap { padding-block: 8px; }
+header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+header.site .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-block: 14px; gap: 16px; }
+nav.main { display: flex; gap: 22px; flex-wrap: wrap; }
+nav.main a { text-decoration: none; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+nav.main a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.logo { display: block; text-decoration: none; }
+.logo img { display: block; height: 46px; width: auto; }
+.tools { display: flex; justify-content: flex-end; gap: 18px; align-items: center; }
+.tools button { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+.count { font-family: var(--mono); font-size: 11px; background: var(--red); color: var(--on-red); border-radius: 999px; min-width: 18px; height: 18px; display: inline-grid; place-items: center; padding: 0 5px; }
+.menu-btn { display: none; }
+
+/* product */
+.crumbs { padding-block: 18px; color: var(--muted); }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: var(--fg); }
+.product { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 48px; align-items: start; padding-bottom: 72px; }
+.gallery { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+.thumbs { display: flex; flex-direction: column; gap: 10px; }
+.thumbs button { background: var(--photo); aspect-ratio: 2/3; border: 1px solid var(--line); padding: 0; overflow: hidden; }
+.thumbs button[aria-current="true"] { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+.shot { width: 100%; height: 100%; overflow: hidden; display: block; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: var(--ox, 50%) var(--oy, 50%); transform: scale(var(--z, 1)); }
+.stage { background: var(--photo); aspect-ratio: 2/3; max-width: 100%; position: relative; overflow: hidden; cursor: zoom-in; }
+.stage.zoomed { cursor: zoom-out; }
+.stage .shot img { transition: transform .35s ease; }
+.stage.zoomed .shot img { transform: scale(2.2); }
+.stage .tag { position: absolute; top: 14px; left: 14px; background: var(--red); color: var(--on-red); padding: 4px 8px; }
+.stage .nav { position: absolute; bottom: 14px; right: 14px; display: flex; gap: 6px; }
+.stage .nav button { width: 38px; height: 38px; background: #ffffff; color: #121314; display: grid; place-items: center; border: 1px solid #e4e5e7; }
+.stage .view-name { position: absolute; bottom: 22px; left: 14px; color: #6b6e72; }
+
+.buy { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.buy h1 { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.05; margin: 0; text-transform: uppercase; text-wrap: balance; letter-spacing: -.01em; }
+.tagline { font-family: var(--display); font-style: italic; font-weight: 800; color: var(--red); font-size: 15px; margin-top: 6px; }
+.price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.price { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.sku { color: var(--muted); }
+.opt-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; gap: 12px; }
+.opt-head b { font-weight: 600; }
+.swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+.swatch { width: 56px; aspect-ratio: 2/3; background: var(--photo); border: 1px solid var(--fg); box-shadow: inset 0 0 0 1px var(--fg); padding: 0; overflow: hidden; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 8px; }
+.size { border: 1px solid var(--line); padding-block: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.size:hover:not(:disabled) { border-color: var(--fg); }
+.size:disabled { color: var(--muted); text-decoration: line-through; background: var(--panel); cursor: not-allowed; }
+.size[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.linkish { text-decoration: underline; text-underline-offset: 3px; font-size: 13px; color: var(--muted); }
+.cta { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.add { background: var(--red); color: var(--on-red); padding-block: 17px; text-transform: uppercase; font-weight: 700; letter-spacing: .08em; font-size: 13px; }
+.add:hover { filter: brightness(1.08); }
+.wish { width: 56px; border: 1px solid var(--line); display: grid; place-items: center; }
+.wish[aria-pressed="true"] svg path { fill: var(--red); stroke: var(--red); }
+.msg { min-height: 20px; font-size: 13px; color: var(--red); margin-top: -12px; }
+.perks { display: grid; gap: 8px; color: var(--muted); font-size: 13px; padding: 14px 0; border-block: 1px solid var(--line); }
+.perks div { display: flex; gap: 10px; align-items: center; }
+.perks .label { color: var(--blue); }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; padding-block: 16px; display: flex; justify-content: space-between; text-transform: uppercase; font-weight: 600; font-size: 13px; letter-spacing: .05em; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--mono); font-weight: 400; }
+details[open] summary::after { content: "–"; }
+.acc-body { padding-bottom: 18px; color: var(--muted); max-width: 65ch; }
+.acc-body ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.acc-body p { margin: 0 0 10px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 13px; }
+th, td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--fg); font-weight: 600; }
+
+/* statement band */
+.statement { background: #0e0e10; color: #f2f1ee; }
+.statement .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 64px; }
+.statement h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(44px, 7vw, 104px); line-height: .9; letter-spacing: -.02em; color: #c41c43; -webkit-text-stroke: 2px #3448c4; paint-order: stroke fill; text-wrap: balance; }
+.statement .sub { margin-top: 18px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 15px; }
+.statement p { color: #a9a8a4; max-width: 46ch; margin: 18px 0 0; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.duo button { background: #ffffff; aspect-ratio: 2/3; padding: 0; overflow: hidden; text-align: left; position: relative; }
+.duo button span.label { position: absolute; left: 10px; bottom: 10px; color: #6b6e72; }
+.duo button:hover img { transform: scale(1.04); }
+.duo img { transition: transform .35s ease; }
+
+/* features */
+.story .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-block: 48px; }
+.story h3 { margin: 6px 0 6px; font-family: var(--display); font-stretch: 112%; font-weight: 800; text-transform: uppercase; font-size: 17px; }
+.story p { margin: 0; color: var(--muted); max-width: 42ch; }
+
+/* footer */
+footer { background: var(--panel); border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 48px 28px; display: grid; gap: 40px; }
+.foot-cols { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); gap: 32px; }
+.foot-cols h4 { margin: 0 0 12px; }
+.foot-cols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--muted); }
+.signup { display: flex; border-bottom: 1px solid var(--fg); margin-top: 14px; max-width: 360px; }
+.signup input { flex: 1; min-width: 0; background: none; border: 0; padding: 10px 0; font: inherit; color: var(--fg); }
+.signup input:focus { outline: none; }
+.signup button { text-transform: uppercase; font-weight: 700; font-size: 12px; letter-spacing: .08em; }
+.foot-base { display: flex; justify-content: space-between; color: var(--muted); flex-wrap: wrap; gap: 12px; }
+.wordmark { font-family: var(--display); font-weight: 900; font-stretch: 125%; font-size: clamp(48px, 12vw, 180px); line-height: .8; letter-spacing: -.02em; color: var(--fg); opacity: .08; overflow: hidden; white-space: nowrap; user-select: none; }
+
+/* cart drawer */
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 20; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--bg); z-index: 21; display: flex; flex-direction: column; padding: calc(env(safe-area-inset-top, 0px) + 20px) max(20px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 20px) 20px; transform: translateX(100%); transition: transform .3s ease; }
+.drawer.open { transform: none; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.drawer-head h2 { margin: 0; font-family: var(--display); font-stretch: 112%; font-weight: 800; text-transform: uppercase; font-size: 18px; }
+.lines { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+.line { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.line .thumb { background: var(--photo); aspect-ratio: 2/3; overflow: hidden; }
+.line .t { font-weight: 600; text-transform: uppercase; font-size: 13px; }
+.line .v { color: var(--muted); font-size: 13px; }
+.qty { display: inline-flex; border: 1px solid var(--line); margin-top: 8px; }
+.qty button { width: 30px; height: 30px; }
+.qty span { width: 28px; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+.remove { color: var(--muted); font-size: 12px; text-decoration: underline; align-self: start; }
+.empty { color: var(--muted); padding-block: 40px; text-align: center; }
+.drawer-foot { padding-top: 16px; display: grid; gap: 12px; }
+.subtotal { display: flex; justify-content: space-between; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ship-bar { height: 3px; background: var(--line); }
+.ship-bar i { display: block; height: 100%; background: var(--blue); transition: width .3s; }
+.toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 10px 16px; z-index: 30; font-size: 13px; }
+
+/* pages */
+[data-page] { animation: fade .25s ease; }
+@keyframes fade { from { opacity: .4; } to { opacity: 1; } }
+nav.main a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: var(--red); }
+.hero { background: #0e0e10; color: #f2f1ee; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 56px; }
+.hero h1 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(52px, 8vw, 128px); line-height: .88; letter-spacing: -.02em; color: #c41c43; -webkit-text-stroke: 2px #3448c4; paint-order: stroke fill; }
+.hero .sub { margin-top: 16px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 15px; }
+.hero p { color: #a9a8a4; max-width: 44ch; margin: 18px 0 26px; }
+.hero .photo { background: #ffffff; aspect-ratio: 2/3; max-width: 100%; overflow: hidden; }
+.hero .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.btn { display: inline-block; background: var(--red); color: var(--on-red); padding: 15px 26px; text-transform: uppercase; font-weight: 700; letter-spacing: .08em; font-size: 13px; text-decoration: none; }
+.btn.ghost { background: transparent; color: inherit; border: 1px solid currentColor; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.cd-label { margin-bottom: 8px; }
+.countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; max-width: 420px; }
+.countdown > div { border: 1px solid var(--line); padding: 10px 4px; text-align: center; display: grid; gap: 4px; }
+.countdown b { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
+.countdown span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.countdown .done { grid-column: 1 / -1; }
+.hero .countdown { margin-bottom: 26px; }
+.hero .countdown > div { border-color: #34353a; }
+.hero .countdown b { color: #f2f1ee; }
+.hero .countdown span { color: #a9a8a4; }
+.page-head { padding-block: 40px 24px; display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.page-head h1 { margin: 0; font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: clamp(28px, 4vw, 48px); text-transform: uppercase; line-height: 1; }
+.page-head p { margin: 8px 0 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 14px; padding-bottom: 72px; }
+.card { text-decoration: none; display: flex; flex-direction: column; gap: 8px; }
+.card .img { background: #ffffff; aspect-ratio: 2/3; position: relative; overflow: hidden; }
+.card .img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+.card .img img + img { opacity: 0; }
+.card:hover .img img + img, .card:focus-visible .img img + img { opacity: 1; }
+.card .badge { position: absolute; top: 10px; left: 10px; z-index: 1; background: var(--red); color: var(--on-red); padding: 3px 7px; }
+.card .name { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .02em; }
+.card .meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.soon { padding-block: 48px 96px; display: grid; gap: 14px; justify-items: start; max-width: 560px; }
+.soon h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: 34px; color: var(--red); }
+.soon p { margin: 0; color: var(--muted); }
+.prose { max-width: 68ch; padding-bottom: 80px; display: grid; gap: 16px; }
+.prose h2 { margin: 16px 0 0; font-size: 15px; text-transform: uppercase; letter-spacing: .05em; }
+.prose p { margin: 0; color: var(--muted); }
+.form { display: grid; gap: 14px; max-width: 440px; padding-bottom: 80px; }
+.form label { display: grid; gap: 6px; }
+.form input, .form textarea, .search-box input { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 12px; }
+.form input:focus, .form textarea:focus, .search-box input:focus { outline: 2px solid var(--fg); outline-offset: -1px; }
+.form .add { justify-self: start; padding-inline: 28px; }
+.help-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.help-nav a { border: 1px solid var(--line); padding: 7px 12px; text-decoration: none; }
+.help-nav a[aria-current="page"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.foot-cols ul a { text-decoration: none; }
+.foot-cols ul a:hover { color: var(--fg); text-decoration: underline; }
+.crumbs a { cursor: pointer; }
+
+/* mobile menu + search */
+.panel-sheet { position: fixed; inset: 0 auto 0 0; width: min(340px, 88%); background: var(--bg); z-index: 21; padding: calc(env(safe-area-inset-top, 0px) + 20px) 20px 20px max(20px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 4px; transform: translateX(-100%); transition: transform .3s ease; }
+.panel-sheet.open { transform: none; }
+.panel-sheet a { text-decoration: none; font-family: var(--display); font-weight: 800; font-stretch: 112%; text-transform: uppercase; font-size: 22px; padding-block: 8px; border-bottom: 1px solid var(--line); }
+.panel-sheet .close { align-self: flex-end; margin-bottom: 12px; }
+.search-sheet { position: fixed; inset: 0 0 auto 0; background: var(--bg); z-index: 21; border-bottom: 1px solid var(--line); }
+.search-sheet .wrap { padding-top: calc(env(safe-area-inset-top, 0px) + 20px); padding-bottom: 24px; display: grid; gap: 16px; }
+.search-box { display: flex; gap: 10px; }
+.search-box input { flex: 1; min-width: 0; font-size: 16px; }
+.results { display: grid; gap: 8px; }
+.results a { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px; align-items: center; text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.results .thumb { background: #ffffff; aspect-ratio: 2/3; overflow: hidden; }
+.results .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 960px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .buy { position: static; }
+  .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story .wrap, .statement .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 720px) {
+  nav.main { display: none; }
+  .menu-btn { display: inline-flex; }
+  header.site .wrap { grid-template-columns: auto 1fr auto; }
+  .logo { justify-self: center; }
+  .logo img { height: 36px; }
+  .tools .hide-sm { display: none; }
+  .gallery { grid-template-columns: minmax(0, 1fr); }
+  .thumbs { flex-direction: row; order: 2; overflow-x: auto; }
+  .thumbs button { width: 64px; flex: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="announce"><div class="wrap label" data-cfg="announcement"></div></div>
+
+<header class="site">
+  <div class="wrap">
+    <nav class="main" aria-label="Main">
+      <a href="#new-arrivals">New Arrivals</a><a href="#hoodies">Hoodies</a><a href="#about">About</a>
+    </nav>
+    <button class="menu-btn label" id="menuBtn" aria-label="Menu">Menu</button>
+    <a class="logo" href="#home" aria-label="Steadfast home"><img src="steadfast-logo.png" alt="Steadfast" width="894" height="333"></a>
+    <div class="tools">
+      <button class="hide-sm" id="searchBtn">Search</button>
+      <a class="hide-sm label" href="#account" style="text-decoration:none;font-family:var(--body);font-size:13px;letter-spacing:.04em">Account</a>
+      <button id="cartBtn" aria-label="Open cart">Cart <span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div data-page="home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="label" style="color:#a9a8a4" data-cfg="hero.eyebrow"></div>
+        <h1>Steadfast</h1>
+        <div class="sub">Built on the word.</div>
+        <p data-cfg="hero.text"></p>
+        <div data-presale><div class="label cd-label" style="color:#a9a8a4">Shipping starts in</div>
+        <div class="countdown" data-countdown></div></div>
+        <div class="btn-row"><a class="btn" href="#product" id="heroBtn"></a><a class="btn ghost" href="#new-arrivals">New arrivals</a></div>
+      </div>
+      <a class="photo" href="#product" aria-label="Shop the Steadfast Script Hoodie"><img src="hoodie-back.webp" alt="Back of the black Steadfast hoodie"></a>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="page-head"><div><h1>Shop</h1><p>Everything in the current drop.</p></div><a class="linkish" href="#hoodies">View all hoodies</a></div>
+    <div class="grid" data-grid></div>
+  </div>
+</div>
+
+<div data-page="new-arrivals" hidden>
+  <div class="wrap">
+    <div class="wrap crumbs label" style="padding-inline:0"><a href="#home">Home</a> / <span>New Arrivals</span></div>
+    <div class="page-head" style="padding-top:8px"><div><h1>New Arrivals</h1><p>The latest from Steadfast.</p></div><span class="label sku" data-count></span></div>
+    <div class="grid" data-grid></div>
+  </div>
+</div>
+
+<div data-page="hoodies" hidden>
+  <div class="wrap">
+    <div class="wrap crumbs label" style="padding-inline:0"><a href="#home">Home</a> / <span>Hoodies</span></div>
+    <div class="page-head" style="padding-top:8px"><div><h1>Hoodies</h1><p>Heavyweight fleece, built to last.</p></div><span class="label sku" data-count></span></div>
+    <div class="grid" data-grid></div>
+  </div>
+</div>
+
+<div data-page="about" hidden>
+  <div class="wrap">
+    <div class="page-head"><div><h1>About</h1><p>Built on the word.</p></div></div>
+    <div class="prose">
+      <p>Steadfast means holding firm. It means staying put when things push back, and keeping your word when it would be easier not to.</p>
+      <p>We make heavyweight everyday clothes that carry that idea. The script on every piece is a reminder of what we stand on.</p>
+      <h2>Our first drop</h2>
+      <p>The Script Hoodie is where it starts: black fleece, a small script on the chest and the full statement across the back.</p>
+      <div><a class="btn" href="#product">Shop the hoodie</a></div>
+    </div>
+  </div>
+</div>
+
+<div data-page="help" hidden>
+  <div class="wrap">
+    <div class="page-head"><div><h1 id="helpTitle">Help</h1><p>Questions about an order? Start here.</p></div></div>
+    <nav class="help-nav" aria-label="Help topics">
+      <a href="#order-status">Order status</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#size-guide">Size guide</a><a href="#contact">Contact</a>
+    </nav>
+    <div data-help="order-status">
+      <form class="form" data-form="Order lookup isn't connected yet.">
+        <label><span class="label">Order number</span><input id="orderNum" required placeholder="SF1001"></label>
+        <label><span class="label">Email</span><input id="orderEmail" type="email" required></label>
+        <button class="add" type="submit">Find my order</button>
+      </form>
+    </div>
+    <div data-help="shipping" class="prose">
+      <h2>Rates</h2>
+      <p data-rates></p>
+      <h2>Processing</h2>
+      <p id="shipProcessing"></p>
+    </div>
+    <div data-help="returns" class="prose">
+      <h2 id="returnsHead"></h2>
+      <p><span data-returns></span> Refunds go back to your original payment method within 5–7 business days of us receiving the return.</p>
+      <h2>Exchanges</h2>
+      <p>Need a different size? Start a return and place a new order for the size you want so you don't miss out if stock runs low.</p>
+    </div>
+    <div data-help="size-guide" class="prose">
+      <p>Relaxed, boxy fit with a dropped shoulder. Measurements are taken flat, in inches.</p>
+      <div class="table-wrap" id="sizeGuideTable"></div>
+    </div>
+    <div data-help="contact">
+      <form class="form" data-form="Thanks. We'll get back to you within 2 business days.">
+        <label><span class="label">Name</span><input id="cName" required></label>
+        <label><span class="label">Email</span><input id="cEmail" type="email" required></label>
+        <label><span class="label">Message</span><textarea id="cMsg" rows="5" required></textarea></label>
+        <button class="add" type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div data-page="account" hidden>
+  <div class="wrap">
+    <div class="page-head"><div><h1>Account</h1><p>Sign in to see your orders and saved items.</p></div></div>
+    <form class="form" data-form="Accounts aren't connected yet.">
+      <label><span class="label">Email</span><input id="aEmail" type="email" required></label>
+      <label><span class="label">Password</span><input id="aPass" type="password" required></label>
+      <button class="add" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>
+
+<div data-page="product" hidden>
+  <div class="wrap crumbs label"><a href="#home">Home</a> / <a href="#hoodies">Hoodies</a> / <span data-cfg="product.name"></span></div>
+
+  <section class="wrap product">
+    <div class="gallery">
+      <div class="thumbs" id="thumbs" role="tablist" aria-label="Product views"></div>
+      <div class="stage" id="stage" title="Click to zoom">
+        <span class="tag label" id="stageTag"></span>
+        <div class="shot" id="stageShot"></div>
+        <span class="view-name label" id="viewName">Front</span>
+        <div class="nav">
+          <button id="prevView" aria-label="Previous view">←</button>
+          <button id="nextView" aria-label="Next view">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="buy">
+      <div>
+        <div class="label sku" data-cfg="product.sku"></div>
+        <h1 data-cfg="product.name"></h1>
+        <div class="tagline" data-cfg="product.tagline"></div>
+      </div>
+      <div class="price-row">
+        <div class="price" id="pPrice"></div>
+        <div class="label sku">or 4 payments of <span id="pInstall"></span></div>
+      </div>
+
+      <div data-presale>
+        <div class="label sku cd-label" id="buyCdLabel"></div>
+        <div class="countdown" data-countdown></div>
+      </div>
+
+      <div>
+        <div class="opt-head"><span class="label">Color: <b data-cfg="product.color"></b></span></div>
+        <div class="swatches"><button class="swatch" aria-pressed="true" aria-label="Black"><span class="shot"><img src="hoodie-front.webp" alt=""></span></button></div>
+      </div>
+
+      <div>
+        <div class="opt-head">
+          <span class="label">Size: <b id="sizeName">Select a size</b></span>
+          <button class="linkish" id="fitLink">Size guide</button>
+        </div>
+        <div class="sizes" id="sizes"></div>
+      </div>
+
+      <div class="cta">
+        <button class="add" id="addBtn"></button>
+        <button class="wish" id="wishBtn" aria-pressed="false" aria-label="Save to wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+      </div>
+      <div class="msg" id="msg" role="status"></div>
+
+      <div class="perks">
+        <div data-presale><span class="label">▸</span> <span id="perkShip"></span></div>
+        <div><span class="label">▸</span> <span id="perkReturns"></span></div>
+      </div>
+
+      <div>
+        <details open>
+          <summary>Product details</summary>
+          <div class="acc-body">
+            <ul id="detailsList"></ul>
+          </div>
+        </details>
+        <details id="fitDetails">
+          <summary>Size &amp; fit</summary>
+          <div class="acc-body">
+            <p data-cfg="product.fitNote"></p>
+            <div class="table-wrap" id="sizeChart"></div>
+          </div>
+        </details>
+        <details>
+          <summary>Shipping &amp; returns</summary>
+          <div class="acc-body">
+            <p data-rates></p>
+            <p data-returns></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap">
+      <div>
+        <h2>Steadfast</h2>
+        <div class="sub">Built on the word.</div>
+        <p>A heavyweight black hoodie with our script on the chest and across the back. Made to be worn every day and to hold up while you do.</p>
+      </div>
+      <div class="duo">
+        <button data-jump="0"><img class="shot" style="width:100%;height:100%;object-fit:cover" src="hoodie-front.webp" alt="Steadfast hoodie, front"><span class="label">Front</span></button>
+        <button data-jump="1"><img class="shot" style="width:100%;height:100%;object-fit:cover" src="hoodie-back.webp" alt="Steadfast hoodie, back"><span class="label">Back</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap">
+      <div><div class="label sku">Front</div><h3>Left-chest script</h3><p>A small red Steadfast script sits over the heart. Everything else on the front stays clean.</p></div>
+      <div><div class="label sku">Back</div><h3>The full statement</h3><p>The script runs large across the shoulders in red with a blue outline, and "Built on the word." sits underneath in white.</p></div>
+      <div><div class="label sku">Fit</div><h3>Boxy and relaxed</h3><p>Dropped shoulders, a roomy body and ribbed cuffs and hem that keep the shape from sagging.</p></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <h4 class="label">Join the list</h4>
+        <div style="color:var(--muted); max-width:36ch">Drop dates, restocks and early access. One email a week at most.</div>
+        <form class="signup" id="signup">
+          <input id="email" type="email" placeholder="Email address" aria-label="Email address" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div><h4 class="label">Shop</h4><ul><li><a href="#new-arrivals">New Arrivals</a></li><li><a href="#hoodies">Hoodies</a></li></ul></div>
+      <div><h4 class="label">Help</h4><ul><li><a href="#order-status">Order Status</a></li><li><a href="#shipping">Shipping</a></li><li><a href="#returns">Returns</a></li><li><a href="#size-guide">Size Guide</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4 class="label">Steadfast</h4><ul><li><a href="#about">About</a></li><li><a href="#account">Account</a></li></ul></div>
+    </div>
+    <div class="wordmark" aria-hidden="true">STEADFAST</div>
+    <div class="foot-base label"><span>© 2026 Steadfast</span><span>Privacy · Terms · Accessibility</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <div class="drawer-head"><h2>Your cart</h2><button class="label" id="closeCart">Close ✕</button></div>
+  <div class="lines" id="lines"></div>
+  <div class="drawer-foot">
+    <div class="label sku" id="shipMsg"></div>
+    <div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
+    <div class="subtotal"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+    <button class="add" id="checkout">Checkout</button>
+    <div class="label sku" style="text-align:center">Taxes and shipping calculated at checkout</div>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<nav class="panel-sheet" id="menuSheet" aria-label="Mobile menu" aria-hidden="true">
+  <button class="label close" id="closeMenu">Close ✕</button>
+  <a href="#home">Home</a><a href="#new-arrivals">New Arrivals</a><a href="#hoodies">Hoodies</a><a href="#about">About</a><a href="#account">Account</a><a href="#contact">Help</a>
+  <button class="linkish" id="menuSearch" style="text-align:left;margin-top:12px">Search</button>
+</nav>
+<div class="search-sheet" id="searchSheet" hidden>
+  <div class="wrap">
+    <div class="search-box"><input id="searchInput" type="search" placeholder="Search Steadfast" aria-label="Search"><button class="label" id="closeSearch">Close ✕</button></div>
+    <div class="results" id="results"></div>
+  </div>
+</div>
+
+<script src="site-config.js"></script>
+<script>
+// All editable content lives in site-config.js
+const PRODUCT = SITE.product, PRE = SITE.preSale, SHIP = SITE.shipping;
+const SIZES = PRODUCT.sizes;
+// z = zoom, ox/oy = focal point, so the detail views are crops of the two photos
+const VIEWS = [
+  { name: "Front", src: "hoodie-front.webp", alt: "Black Steadfast hoodie, front", z: 1 },
+  { name: "Back", src: "hoodie-back.webp", alt: "Black Steadfast hoodie, back", z: 1 },
+  { name: "Back graphic", src: "hoodie-back.webp", alt: "Close-up of the Steadfast back graphic", z: 2.6, ox: "50%", oy: "30%" },
+  { name: "Chest script", src: "hoodie-front.webp", alt: "Close-up of the left-chest Steadfast script", z: 3.4, ox: "58%", oy: "28%" },
+];
+
+const state = { size: null, view: 0, cart: [], wish: false };
+try { const saved = JSON.parse(localStorage.getItem("sf-cart-v2") || "[]"); if (Array.isArray(saved)) state.cart = saved; } catch (e) {}
+const $ = id => document.getElementById(id);
+const money = n => "$" + n.toFixed(2);
+const shot = v => `<img src="${v.src}" alt="${v.alt}" style="--z:${v.z};--ox:${v.ox || "50%"};--oy:${v.oy || "50%"}">`;
+
+function renderStage() {
+  const v = VIEWS[state.view];
+  $("thumbs").innerHTML = VIEWS.map((t, i) => `<button role="tab" aria-current="${i === state.view}" aria-label="${t.name}" data-view="${i}"><span class="shot">${shot(t)}</span></button>`).join("");
+  $("stageShot").innerHTML = shot(v);
+  $("viewName").textContent = v.name;
+  $("stage").classList.remove("zoomed");
+}
+function renderSizes() {
+  $("sizes").innerHTML = SIZES.map(s => PRODUCT.soldOut.includes(s)
+    ? `<button class="size" disabled aria-label="${s}, sold out">${s}</button>`
+    : `<button class="size" data-size="${s}" aria-pressed="${s === state.size}">${s}</button>`).join("");
+  $("sizeName").textContent = state.size || "Select a size";
+}
+function renderCart() {
+  const qty = state.cart.reduce((a, l) => a + l.qty, 0);
+  const total = qty * PRODUCT.price;
+  $("cartCount").textContent = qty;
+  $("subtotal").textContent = money(total);
+  const left = SHIP.freeOver - total;
+  $("shipMsg").textContent = total === 0 ? `Free shipping on orders over ${money(SHIP.freeOver)}` : left > 0 ? `You're ${money(left)} away from free shipping` : "Your order ships free";
+  $("shipBar").style.width = Math.min(100, total / SHIP.freeOver * 100) + "%";
+  $("lines").innerHTML = state.cart.length ? state.cart.map((l, i) => `
+    <div class="line">
+      <div class="thumb"><span class="shot">${shot(VIEWS[0])}</span></div>
+      <div><div class="t">${PRODUCT.name}</div><div class="v">${PRODUCT.color} / ${l.size}${PRE.on ? " · Pre-order" : ""}</div><div class="v">${money(PRODUCT.price)}</div>
+        <div class="qty"><button data-dec="${i}" aria-label="Decrease quantity">−</button><span>${l.qty}</span><button data-inc="${i}" aria-label="Increase quantity">+</button></div></div>
+      <button class="remove" data-rm="${i}">Remove</button>
+    </div>`).join("") : `<div class="empty">Your cart is empty.<br>Pick a size to get started.</div>`;
+  try { localStorage.setItem("sf-cart-v2", JSON.stringify(state.cart)); } catch (e) {}
+}
+function openCart(open) {
+  $("drawer").classList.toggle("open", open);
+  $("drawer").setAttribute("aria-hidden", !open);
+  $("scrim").hidden = !open;
+}
+let toastT;
+function toast(t) { $("toast").textContent = t; $("toast").hidden = false; clearTimeout(toastT); toastT = setTimeout(() => $("toast").hidden = true, 2200); }
+
+$("pPrice").textContent = money(PRODUCT.price);
+$("pInstall").textContent = money(PRODUCT.price / 4);
+$("sizes").addEventListener("click", e => { const b = e.target.closest("[data-size]"); if (!b) return; state.size = b.dataset.size; $("msg").textContent = ""; renderSizes(); });
+$("thumbs").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if (!b) return; state.view = +b.dataset.view; renderStage(); });
+$("prevView").onclick = e => { e.stopPropagation(); state.view = (state.view + VIEWS.length - 1) % VIEWS.length; renderStage(); };
+$("nextView").onclick = e => { e.stopPropagation(); state.view = (state.view + 1) % VIEWS.length; renderStage(); };
+$("stage").addEventListener("click", e => {
+  if (VIEWS[state.view].z > 1) return;
+  const r = $("stage").getBoundingClientRect(), img = $("stageShot").querySelector("img");
+  img.style.transformOrigin = `${(e.clientX - r.left) / r.width * 100}% ${(e.clientY - r.top) / r.height * 100}%`;
+  $("stage").classList.toggle("zoomed");
+});
+document.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => { state.view = +b.dataset.jump; renderStage(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+$("fitLink").onclick = () => { $("fitDetails").open = true; $("fitDetails").scrollIntoView({ behavior: "smooth", block: "center" }); };
+$("wishBtn").onclick = () => { state.wish = !state.wish; $("wishBtn").setAttribute("aria-pressed", state.wish); toast(state.wish ? "Saved to wishlist" : "Removed from wishlist"); };
+$("addBtn").onclick = () => {
+  if (!state.size) { $("msg").textContent = PRE.on ? "Choose a size to pre-order." : "Choose a size to add this to your cart."; return; }
+  const line = state.cart.find(l => l.size === state.size);
+  line ? line.qty++ : state.cart.push({ size: state.size, qty: 1 });
+  renderCart(); openCart(true);
+};
+$("lines").addEventListener("click", e => {
+  const t = e.target;
+  if (t.dataset.inc) state.cart[t.dataset.inc].qty++;
+  else if (t.dataset.dec) { const l = state.cart[t.dataset.dec]; l.qty > 1 ? l.qty-- : state.cart.splice(t.dataset.dec, 1); }
+  else if (t.dataset.rm) state.cart.splice(t.dataset.rm, 1);
+  else return;
+  renderCart();
+});
+$("cartBtn").onclick = () => openCart(true);
+$("closeCart").onclick = () => openCart(false);
+$("scrim").onclick = () => openCart(false);
+document.addEventListener("keydown", e => { if (e.key === "Escape") openCart(false); });
+// Checkout goes through the Cloudflare Worker (/api/checkout), which creates a Stripe Checkout page.
+$("checkout").onclick = async () => {
+  if (!state.cart.length) return toast("Your cart is empty.");
+  const btn = $("checkout"), label = btn.textContent;
+  btn.disabled = true; btn.textContent = "Opening secure checkout…";
+  try {
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: state.cart.map(l => ({ size: l.size, qty: l.qty })) }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.url) throw new Error(data.error || "Checkout isn't connected yet.");
+    location.href = data.url;
+  } catch (err) {
+    toast(err.message.startsWith("Checkout") || err.message.includes("size") ? err.message : "Checkout isn't connected yet.");
+    btn.disabled = false; btn.textContent = label;
+  }
+};
+// Stripe sends customers back to /?checkout=success after paying
+if (new URLSearchParams(location.search).get("checkout") === "success") {
+  state.cart = []; renderCart();
+  setTimeout(() => toast(PRE.on ? "Thank you! Your pre-order is confirmed. Check your email for the receipt." : "Thank you! Your order is confirmed."), 300);
+  try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+}
+$("signup").addEventListener("submit", e => { e.preventDefault(); toast("You're on the list."); $("email").value = ""; });
+
+/* ---------- fill the page from site-config.js ---------- */
+const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+document.querySelectorAll("[data-cfg]").forEach(el => el.textContent = el.dataset.cfg.split(".").reduce((o, k) => o?.[k], SITE) ?? "");
+document.querySelectorAll("[data-presale]").forEach(el => el.hidden = !PRE.on);
+$("heroBtn").textContent = PRE.on ? PRE.heroButtonText : "Shop the hoodie";
+$("addBtn").textContent = PRE.on ? PRE.buttonText : "Add to cart";
+$("stageTag").textContent = PRE.on ? PRE.badge : PRODUCT.badge;
+$("stageTag").hidden = !$("stageTag").textContent;
+$("buyCdLabel").textContent = `Shipping starts ${PRE.shipDateText} — in`;
+$("perkShip").textContent = `Pre-order: shipping starts ${PRE.shipDateText}`;
+$("perkReturns").textContent = `Free returns within ${SHIP.returnDays} days, unworn with tags`;
+document.querySelectorAll(".swatch").forEach(b => b.setAttribute("aria-label", PRODUCT.color));
+$("detailsList").innerHTML = PRODUCT.details.map(d => `<li>${esc(d)}</li>`).join("");
+$("sizeChart").innerHTML = `<table><thead><tr>${PRODUCT.sizeChart.headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+  <tbody>${PRODUCT.sizeChart.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+document.querySelectorAll("[data-rates]").forEach(el => el.textContent =
+  `Standard shipping (${SHIP.standardDays} business days) is free on orders over ${money(SHIP.freeOver)}, otherwise ${money(SHIP.standardPrice)}. Express (${SHIP.expressDays} business days) is ${money(SHIP.expressPrice)}.`);
+document.querySelectorAll("[data-returns]").forEach(el => el.textContent = `Return or exchange unworn items with original tags within ${SHIP.returnDays} days of delivery.`);
+$("returnsHead").textContent = `${SHIP.returnDays}-day returns`;
+$("shipProcessing").textContent = (PRE.on ? `The ${PRODUCT.name} is on pre-sale, and shipping starts ${PRE.shipDateText}. ` : "Orders ship within 1–2 business days. ")
+  + "You'll get a tracking number by email as soon as your order leaves.";
+
+/* ---------- pages ---------- */
+const CATALOG = [
+  { href: "#product", name: PRODUCT.name, price: PRODUCT.price, badge: PRE.on ? PRE.badge : PRODUCT.badge, front: "hoodie-front.webp", back: "hoodie-back.webp", tags: "hoodie black script new built on the word" },
+];
+const HELP = { "order-status": "Order Status", shipping: "Shipping", returns: "Returns", "size-guide": "Size Guide", contact: "Contact" };
+const card = p => `<a class="card" href="${p.href}">
+  <div class="img">${p.badge ? `<span class="badge label">${p.badge}</span>` : ""}<img src="${p.front}" alt="${p.name}, front"><img src="${p.back}" alt="" aria-hidden="true"></div>
+  <div class="name">${p.name}</div>
+  <div class="meta"><span>${PRODUCT.color}</span><span>${money(p.price)}</span></div></a>`;
+document.querySelectorAll("[data-grid]").forEach(g => g.innerHTML = CATALOG.map(card).join(""));
+document.querySelectorAll("[data-count]").forEach(c => c.textContent = CATALOG.length + (CATALOG.length === 1 ? " item" : " items"));
+$("sizeGuideTable").innerHTML = $("sizeChart").innerHTML;
+
+function route(token = location.hash.replace("#", "") || "home") {
+  const page = HELP[token] ? "help" : document.querySelector(`[data-page="${token}"]`) ? token : "home";
+  document.querySelectorAll("[data-page]").forEach(p => p.hidden = p.dataset.page !== page);
+  if (page === "help") {
+    $("helpTitle").textContent = HELP[token];
+    document.querySelectorAll("[data-help]").forEach(h => h.hidden = h.dataset.help !== token);
+  }
+  const navKey = page === "product" ? "hoodies" : page;
+  document.querySelectorAll("nav.main a, .help-nav a").forEach(a => {
+    const k = a.getAttribute("href").slice(1);
+    a.toggleAttribute("aria-current", k === navKey || k === token);
+    if (a.hasAttribute("aria-current")) a.setAttribute("aria-current", "page");
+  });
+  openMenu(false); openSearch(false); openCart(false);
+  window.scrollTo(0, 0);
+}
+// handle in-page links ourselves so navigation works even where the frame ignores hash changes
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  e.preventDefault();
+  const token = a.getAttribute("href").slice(1) || "home";
+  try { history.pushState(null, "", "#" + token); } catch (err) {}
+  route(token);
+});
+window.addEventListener("popstate", () => route());
+window.addEventListener("hashchange", () => route());
+
+function openMenu(open) { $("menuSheet").classList.toggle("open", open); $("menuSheet").setAttribute("aria-hidden", !open); if (open || $("drawer").classList.contains("open") === false) $("scrim").hidden = !open; }
+function openSearch(open) { $("searchSheet").hidden = !open; if (open) { $("searchInput").value = ""; renderResults(); $("searchInput").focus(); } }
+function renderResults() {
+  const q = $("searchInput").value.trim().toLowerCase();
+  const hits = CATALOG.filter(p => !q || (p.name + " " + p.tags).toLowerCase().includes(q));
+  $("results").innerHTML = hits.length ? hits.map(p => `<a href="${p.href}"><span class="thumb"><img src="${p.front}" alt=""></span><span class="card name" style="display:block">${p.name}</span><span class="sku">${money(p.price)}</span></a>`).join("")
+    : `<div class="sku">No results for "${q.replace(/[<>&"]/g, "")}". Try "hoodie".</div>`;
+}
+$("menuBtn").onclick = () => openMenu(true);
+$("closeMenu").onclick = () => openMenu(false);
+$("menuSearch").onclick = () => { openMenu(false); openSearch(true); };
+$("searchBtn").onclick = () => openSearch(true);
+$("closeSearch").onclick = () => openSearch(false);
+$("searchInput").addEventListener("input", renderResults);
+$("scrim").onclick = () => { openCart(false); openMenu(false); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") { openMenu(false); openSearch(false); } });
+document.querySelectorAll("form[data-form]").forEach(f => f.addEventListener("submit", e => { e.preventDefault(); toast(f.dataset.form); f.reset(); }));
+
+/* ---------- countdown to shipping ---------- */
+const SHIP_DATE = new Date(PRE.shipDate);
+const UNITS = [["d", "Days"], ["h", "Hours"], ["m", "Minutes"], ["s", "Seconds"]];
+document.querySelectorAll("[data-countdown]").forEach(el => el.innerHTML = UNITS.map(([k, n]) => `<div><b data-u="${k}">--</b><span>${n}</span></div>`).join(""));
+function tick() {
+  const ms = SHIP_DATE - Date.now();
+  if (ms <= 0) {
+    document.querySelectorAll("[data-countdown]").forEach(el => el.innerHTML = `<div class="done"><b>Shipping now</b></div>`);
+    return clearInterval(tickT);
+  }
+  const s = Math.floor(ms / 1000);
+  const v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+  document.querySelectorAll("[data-u]").forEach(b => b.textContent = String(v[b.dataset.u]).padStart(2, "0"));
+}
+const tickT = PRE.on ? setInterval(tick, 1000) : null;
+if (PRE.on) tick();
+
+renderStage();
+renderSizes();
+renderCart();
+route();
+</script>
+
+</body>
+</html>
