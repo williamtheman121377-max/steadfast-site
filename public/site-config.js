@@ -8,7 +8,7 @@
 window.SITE = {
 
   // Black bar across the very top of every page
-  announcement: "Pre-sale now open · Shipping starts January 22 · Built on the word.",
+  announcement: "Pre-sale now open · Shipping starts January 12 · Built on the word.",
 
   // Pre-sale mode. Set on: false to switch the whole site back to normal selling:
   // buttons say "Add to cart", countdowns disappear and the Pre-sale tags go away.
@@ -16,8 +16,8 @@ window.SITE = {
     on: true,
     // When shipping starts. The countdown runs to this moment.
     // Format: YYYY-MM-DDTHH:MM:SS then your time zone offset (-05:00 is US Eastern in winter).
-    shipDate: "2027-01-22T00:00:00-05:00",
-    shipDateText: "January 22, 2027",   // how the date is written in sentences on the site
+    shipDate: "2027-01-12T00:00:00-05:00",
+    shipDateText: "January 12, 2027",   // how the date is written in sentences on the site
     buttonText: "Pre-order",            // the main buy button on the product page
     heroButtonText: "Pre-order now",    // the red button on the home page
     badge: "Pre-sale",                  // the red tag on photos and shop cards
@@ -26,7 +26,7 @@ window.SITE = {
   // Home page banner text
   hero: {
     eyebrow: "Pre-sale now open",
-    text: "Pre-order the Script Hoodie now. Heavyweight black fleece with our script on the chest and across the back. Shipping starts January 22.",
+    text: "Pre-order the Script Hoodie now. Heavyweight black fleece with our script on the chest and across the back. Shipping starts January 12.",
   },
 
   // The hoodie
